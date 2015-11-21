@@ -8,7 +8,7 @@ Dasom is a multilingual input method framework, which provides
 
   * Indicators
     * GNOME shell: dasom agent extension
-    * KDE, Unity, GNOME panel: dasom-indicator (using libappindicator3)
+    * KDE, Unity, GNOME panel: dasom-indicator (based on libappindicator3)
 
 Project Homepage: https://github.com/dasom-im/dasom
 
@@ -65,8 +65,9 @@ Architecture
                 | engine module |   calls    | candidate module |
                 |   interface   | ---------> |    interface     |
                 +---------------+            +------------------+
-                  |                            |
-                  +- dasom-english             +- dasom-candidate (gtk3)
+                  |                             |
+                  +- dasom-english (embedded)   +- dasom-candidate (gtk3)
+                  +- dasom-jeongeum (optional)
 
 
 Debugging
@@ -87,7 +88,7 @@ References
   http://www.x.org/releases/X11R7.6/doc/libX11/specs/XIM/xim.html
   http://www.w3.org/TR/ime-api/
   https://developer.chrome.com/extensions/input_ime
-  http://docs.enlightenment.org/auto/efl/ecore_main.html
+  https://docs.enlightenment.org/stable/efl/group__Ecore__IMF__Lib__Group.html
   http://doc.qt.io/qt-4.8/qinputcontext.html
   http://doc.qt.io/qt-5/qinputmethod.html
   https://git.gnome.org/browse/gtk+
