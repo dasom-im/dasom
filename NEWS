@@ -1,3 +1,18 @@
+dasom (1.1) stable; urgency=medium
+
+  * Fixed a possible segmentation fault that occurs when we use the inkscape
+    and avoids the eclipse bug (closes #29)
+  * Reduced data communications traffic (closes #4)
+  * Removed Korean engine (dasom-jeongeum)
+  * Moved dasom-english to libdasom as embedded engine
+  * Commit and then update preedit (closes #4)
+  * Do not use Delete key in deleting Jaso (closes #23)
+  * Fixed race condition (closes #18)
+  * Show version (closes #21)
+  * Hook event only when im has focus (closes #27 #28)
+
+ -- Hodong Kim <hodong@cogno.org>  Sun, 22 Nov 2015 00:23:11 +0900
+
 dasom (1.0.1) stable; urgency=medium
 
   * Fixed race condition (closes #18)
