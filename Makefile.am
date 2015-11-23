@@ -1,4 +1,4 @@
-SUBDIRS = libdasom modules daemon agents po data
+SUBDIRS = libdasom daemon agents po data
 
 ACLOCAL_AMFLAGS = -I m4
 
@@ -16,10 +16,6 @@ clean-local:
 
 distclean-local:
 	rm -rf autom4te.cache build-aux m4
-
-update-gtk-im-cache:
-	$(GTK_QUERY_IMMODULES2) --update-cache
-	$(GTK_QUERY_IMMODULES3) --update-cache
 
 update-gtk-icon-cache:
 	(cd data/icons; make update-gtk-icon-cache)

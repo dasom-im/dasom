@@ -29,6 +29,5 @@ Description: Input Method Framework
  Dasom is a multilingual input method framework, which provides
  .
   * Input Method Server including XIM
-  * IM Modules for GTK+2, GTK+3, Qt4, Qt5
   * Indicators for GNOME Shell, Unity, KDE, GNOME panel
   * English engine module embedded

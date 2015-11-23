@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: dasom 1.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-05 05:01+0900\n"
-"PO-Revision-Date: 2015-10-25 19:07+0900\n"
+"PO-Revision-Date: 2015-11-23 16:33+0900\n"
 "Last-Translator: Hodong Kim <hodong@cogno.org>\n"
 "Language-Team: Hodong Kim <hodong@cogno.org>\n"
 "Language: ko\n"
@@ -28,24 +28,24 @@ msgstr "다솜 %s"
 msgid "Dasom Indicator"
 msgstr "다솜 표시기"
 
-#: ../agents/app-indicator/dasom-indicator.c:95 ../daemon/dasom-daemon.c:47
+#: ../agents/app-indicator/dasom-indicator.c:97 ../daemon/dasom-daemon.c:47
 msgid "Do not daemonize"
 msgstr "데몬화하지 않습니다"
 
-#: ../agents/app-indicator/dasom-indicator.c:96 ../daemon/dasom-daemon.c:48
+#: ../agents/app-indicator/dasom-indicator.c:98 ../daemon/dasom-daemon.c:48
 msgid "Log debugging message"
 msgstr "디버깅 메시지를 기록합니다"
 
-#: ../agents/app-indicator/dasom-indicator.c:97 ../daemon/dasom-daemon.c:49
+#: ../agents/app-indicator/dasom-indicator.c:99 ../daemon/dasom-daemon.c:49
 msgid "Version"
 msgstr "버전"
 
-#: ../agents/app-indicator/dasom-indicator.c:147
+#: ../agents/app-indicator/dasom-indicator.c:152
 #: ../agents/gnome-shell-extension/extension.js:80
 msgid "About"
 msgstr "정보"
 
-#: ../agents/app-indicator/dasom-indicator.c:148
+#: ../agents/app-indicator/dasom-indicator.c:153
 msgid "Exit"
 msgstr "종료"
 
@@ -57,9 +57,7 @@ msgstr "닫기"
 msgid "dasom "
 msgstr "다솜"
 
-#. ID
 #: ../agents/gnome-shell-extension/extension.js:65
 #: ../agents/gnome-shell-extension/extension.js:68
-#: ../modules/clients/gtk/im-dasom.c:484
 msgid "Dasom"
 msgstr "다솜"

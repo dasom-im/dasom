@@ -3,9 +3,6 @@ Dasom is a multilingual input method framework, which provides
   * Input Method Server
     * dasom-daemon including XIM
 
-  * Client Modules
-    * GTK+2, GTK+3, Qt4, Qt5
-
   * Indicators
     * GNOME shell: dasom agent extension
     * KDE, Unity, GNOME panel: dasom-indicator (based on libappindicator3)
@@ -22,7 +19,6 @@ INSTALL
     make
     sudo make install
     sudo ldconfig
-    sudo make update-gtk-im-cache
     sudo make update-gtk-icon-cache
 
   * For gnome-shell, enable dasom-agent@gnome-shell-extensions.cogno.org
@@ -44,18 +40,18 @@ Troubleshoot
 Architecture
 ------------
 
-      +- im modules --+    +---- each process -----+  +- a process --+
-      | gtk im module |    | gnome-shell-extension |  |   X server   |
-      | qt  im module |    | dasom-indicator       |  +--------------+
-      +---------------+    +-----------------------+         ^ |
-              | calls                  | calls               | |
-    +------------------+    +---------------------+          | |
-    | dasom IM library |    | dasom agent library |          | | communicates
-    +------------------+    +---------------------+          | |
-             ^ |                      ^ |                    | |
-             | |   communicates       | |                    | |
-             | |   via Unix Socket    | |                    | |
-             | v                      | v                    | v
+    +- im modules (optional) -+  +---- each process -----+  +- a process --+
+    |        dasom-gtk        |  | gnome-shell-extension |  |   X server   |
+    |        dasom-qt         |  | dasom-indicator       |  +--------------+
+    +-------------------------+  +-----------------------+    ^ |
+                 | calls                  | calls             | |
+       +------------------+    +---------------------+        | |
+       | dasom IM library |    | dasom agent library |        | | communicates
+       +------------------+    +---------------------+        | |
+                ^ |                      ^ |                  | |
+                | |   communicates       | |                  | |
+                | |   via Unix Socket    | |                  | |
+                | v                      | v                  | v
           +---------------------- a process ----------------------+
           |                     dasom-daemon (including XIM)      |
           +-------------------------------------------------------+
@@ -70,19 +66,6 @@ Architecture
                   +- dasom-jeongeum (optional)
 
 
-Debugging
----------
-    dasom-daemon --debug
-    tail -f /var/log/daemon.log
-
-    export GTK_IM_MODULE="dasom"
-    export QT4_IM_MODULE="dasom"
-    export QT_IM_MODULE="dasom"
-    export G_MESSAGES_DEBUG=dasom
-    export XMODIFIERS="@im=dasom"
-    gedit # or kate for Qt
-
-
 References
 ----------
   http://www.x.org/releases/X11R7.6/doc/libX11/specs/XIM/xim.html
@@ -95,5 +78,4 @@ References
 
   https://github.com/ibus/ibus
   https://github.com/fcitx/fcitx
-  https://github.com/fcitx/fcitx-qt5
   https://github.com/uim/uim

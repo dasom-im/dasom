@@ -12,7 +12,6 @@ AM_SILENT_RULES([yes])
 
 AM_PROG_AR
 AC_PROG_CC
-AC_PROG_CXX
 
 dnl ***************************************************************************
 dnl Internationalization
@@ -27,77 +26,21 @@ AM_GLIB_DEFINE_LOCALEDIR(DASOM_LOCALE_DIR)
 
 LT_INIT([disable-static])
 
-LIBDASOM_REQUIRES="glib-2.0 gio-2.0 gio-unix-2.0 gmodule-2.0 gobject-introspection-1.0 gtk+-3.0 x11"
+LIBDASOM_REQUIRES="glib-2.0 gio-2.0 gio-unix-2.0 gmodule-2.0 gobject-introspection-1.0 x11"
+LIBDASOM_PRIVATE="gtk+-3.0"
 AC_SUBST(LIBDASOM_REQUIRES)
+AC_SUBST(LIBDASOM_PRIVATE)
 
-PKG_CHECK_MODULES(LIBDASOM_DEPS, $LIBDASOM_REQUIRES)
+PKG_CHECK_MODULES(LIBDASOM_DEPS, [$LIBDASOM_REQUIRES $LIBDASOM_PRIVATE])
 PKG_CHECK_MODULES(GLIB, [glib-2.0])
 PKG_CHECK_MODULES(GIO, [gio-2.0])
 PKG_CHECK_MODULES(GOBJECT, [gobject-2.0])
 PKG_CHECK_MODULES(GTK3, [gtk+-3.0])
-PKG_CHECK_MODULES(GTK2, [gtk+-2.0])
 PKG_CHECK_MODULES(X11, [x11])
 
 dnl ***************************************************************************
-dnl  Qt
+dnl  icon cache
 dnl ***************************************************************************
-
-PKG_CHECK_MODULES(QT4_GUI, [QtGui])
-PKG_CHECK_MODULES(QT5_WIDGETS, [Qt5Widgets])
-PKG_CHECK_MODULES(QT5_PLATFORM_SUPPORT, [Qt5PlatformSupport])
-
-AC_PATH_PROGS([QT5_MOC], [moc-qt5 moc], [no],
-              [`pkg-config --variable=host_bins Qt5Core`])
-if test "x$QT5_MOC" = "xno"; then
-  AC_MSG_ERROR([moc for qt5 not found])
-fi
-
-QT5_LIB_DIR=`pkg-config --variable=libdir Qt5PlatformSupport`
-
-case `pkg-config --variable=host_bins Qt5Core` in
-  */qt5/*)
-    QT5_IM_MODULE_DIR=$QT5_LIB_DIR/qt5/plugins/platforminputcontexts
-    ;;
-  */qt/*)
-    QT5_IM_MODULE_DIR=$QT5_LIB_DIR/qt/plugins/platforminputcontexts
-    ;;
-  *)
-    AC_MSG_ERROR(Can not determine Qt5 plugins/platforminputcontexts directory)
-    ;;
-esac
-
-AC_SUBST(QT5_IM_MODULE_DIR)
-
-dnl ***************************************************************************
-dnl  GTK+
-dnl ***************************************************************************
-
-case `uname -m` in
-  x86_64)
-    BITS=64
-    ;;
-  *)
-    BITS=32
-    ;;
-esac
-
-GTK3_LIBDIR=`pkg-config --variable=libdir gtk+-3.0`
-AC_SUBST(GTK3_LIBDIR)
-AC_PATH_PROGS([GTK_QUERY_IMMODULES3],
-              [gtk-query-immodules-3.0 gtk-query-immodules-3.0-$BITS], [no],
-              [/usr/bin:$GTK3_LIBDIR/libgtk-3-0])
-if test "x$GTK_QUERY_IMMODULES3" = "xno"; then
-  AC_MSG_ERROR([gtk-query-immodules-3.0 or gtk-query-immodules-3.0-$BITS not found])
-fi
-
-GTK2_LIBDIR=`pkg-config --variable=libdir gtk+-2.0`
-AC_SUBST(GTK2_LIBDIR)
-AC_PATH_PROGS([GTK_QUERY_IMMODULES2],
-              [gtk-query-immodules-2.0 gtk-query-immodules-2.0-$BITS], [no],
-              [/usr/bin:$GTK2_LIBDIR/libgtk2.0-0])
-if test "x$GTK_QUERY_IMMODULES2" = "xno"; then
-  AC_MSG_ERROR([gtk-query-immodules-2.0 or gtk-query-immodules-2.0-$BITS not found])
-fi
 
 AC_PATH_PROGS([GTK_UPDATE_ICON_CACHE],
               [gtk-update-icon-cache-3.0 gtk-update-icon-cache], [no],
@@ -138,10 +81,6 @@ AC_OUTPUT([
   data/icons/Makefile
   libdasom/Makefile
   libdasom/dasom.pc
-  modules/Makefile
-  modules/clients/Makefile
-  modules/clients/gtk/Makefile
-  modules/clients/qt4/Makefile
-  modules/clients/qt5/Makefile
   daemon/Makefile
-  po/Makefile.in])
+  po/Makefile.in
+])
