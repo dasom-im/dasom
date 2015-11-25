@@ -42,7 +42,7 @@ static void on_about_menu (GtkWidget *widget,
                                    GTK_DIALOG_DESTROY_WITH_PARENT,
                                    GTK_MESSAGE_INFO,
                                    GTK_BUTTONS_CLOSE,
-                                   _("dasom %s"), VERSION);
+                                   _("Dasom %s\n\nDasom was named by Suhyeok Gwon."), VERSION);
 
   gtk_window_set_title (GTK_WINDOW (dialog), _("Dasom Indicator"));
   gtk_dialog_run (GTK_DIALOG (dialog));

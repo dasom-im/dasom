@@ -33,7 +33,8 @@ const AboutDialog = new Lang.Class({
                                          x_align: Clutter.ActorAlign.CENTER});
       let spacing       = new St.Label({ text: "\n" });
       let message_label = new St.Label({
-        text: _("dasom" + " " + version_text) });
+        text: _("Dasom") + " " + version_text + "\n\n" +
+              _("Dasom was named by Suhyeok Gwon.") });
       let content_layout = new St.BoxLayout({ vertical: true });
 
       content_layout.add(title_label);
