@@ -6,10 +6,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: dasom\n"
+"Project-Id-Version: dasom 1.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-05 05:01+0900\n"
-"PO-Revision-Date: 2015-11-25 23:10+0900\n"
+"PO-Revision-Date: 2015-11-30 00:41+0900\n"
 "Last-Translator: Hodong Kim <hodong@cogno.org>\n"
 "Language-Team: Hodong Kim <hodong@cogno.org>\n"
 "Language: ko\n"
