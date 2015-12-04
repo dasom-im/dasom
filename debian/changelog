@@ -1,1 +1,51 @@
-../NEWS
+dasom (1.2) stable; urgency=medium
+
+  * Modified icons
+  * Fixed possible faults
+  * Fixed dependency on gtk3 header file (closes #33)
+  * Added information: Dasom was named by Suhyeok Gwon (closes #32)
+  * Removed client modules gtk, qt
+    - Visit https://github.com/dasom-im/dasom-gtk for GTK+2, GTK+3 IM modules
+    - Visit https://github.com/dasom-im/dasom-qt for Qt4, Qt5 IM modules
+
+ -- Hodong Kim <hodong@cogno.org>  Mon, 30 Nov 2015 00:34:22 +0900
+
+dasom (1.1) stable; urgency=medium
+
+  * Fixed a possible segmentation fault that occurs when we use the inkscape
+    and avoids the eclipse bug (closes #29)
+  * Reduced data communications traffic (closes #4)
+  * Removed Korean engine (dasom-jeongeum)
+  * Moved dasom-english to libdasom as embedded engine
+  * Commit and then update preedit (closes #4)
+  * Do not use Delete key in deleting Jaso (closes #23)
+  * Fixed race condition (closes #18)
+  * Show version (closes #21)
+  * Hook event only when im has focus (closes #27 #28)
+
+ -- Hodong Kim <hodong@cogno.org>  Sun, 22 Nov 2015 00:23:11 +0900
+
+dasom (1.0.1) stable; urgency=medium
+
+  * Fixed race condition (closes #18)
+  * Dubeolsik: Compose double consonants only with shift key by default
+  * Fixed CapsLock (closes #15 #16)
+  * Fixed event hooking (closes #9)
+  * Fixed compatibility issue with Qt 5.5 (closes #11)
+  * Modified icon brightness
+    - f9f9f9 (2.5% gray) --> f2f2f2 ( 5% gray)
+    - ffffff (black)     --> 1a1a1a (90% gray)
+
+ -- Hodong Kim <hodong@cogno.org>  Sun, 25 Oct 2015 00:37:29 +0900
+
+dasom (1.0) stable; urgency=medium
+
+  * Initial Release
+
+  * Dasom is an input method framework, which provides
+    - Input Method Server including XIM
+    - Language Engines for Korean, English
+    - IM Modules for GTK+2, GTK+3, Qt4, Qt5
+    - Indicators for GNOME Shell, Unity, KDE, GNOME panel
+
+ -- Hodong Kim <hodong@cogno.org>  Fri, 09 Oct 2015 01:21:10 +0900
