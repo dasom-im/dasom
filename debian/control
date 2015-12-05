@@ -9,10 +9,7 @@ Build-Depends: debhelper (>= 9),
                pkg-config,
                intltool,
                libgtk-3-dev,
-               libgtk2.0-dev,
-               libqt4-dev,
-               qtbase5-dev,
-               qtbase5-private-dev,
+               libgtk-3-bin,
                libappindicator3-dev,
                librsvg2-bin,
                fonts-noto-cjk
@@ -31,3 +28,19 @@ Description: Input Method Framework
   * Input Method Server including XIM
   * Indicators for GNOME Shell, Unity, KDE, GNOME panel
   * English engine module embedded
+
+Package: dasom-dev
+Section: libdevel
+Architecture: any
+Depends: ${misc:Depends},
+         dasom (= ${binary:Version}),
+         libgirepository1.0-dev,
+         libx11-dev
+Description: Input Method Framework (development files)
+ Dasom is a multilingual input method framework, which provides
+ .
+  * Input Method Server including XIM
+  * Indicators for GNOME Shell, Unity, KDE, GNOME panel
+  * English engine module embedded
+ .
+ This package contains the development files.
