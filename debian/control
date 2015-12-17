@@ -20,8 +20,8 @@ Package: dasom
 Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Recommends: im-config, dconf-editor, gnome-tweak-tool
-Suggests: fonts-noto-cjk, dasom-jeongeum
+Recommends: dasom-gtk, dasom-qt, im-config, dconf-editor
+Suggests: dasom-jeongeum, gnome-tweak-tool, fonts-noto-cjk
 Description: Input Method Framework
  Dasom is a multilingual input method framework, which provides
  .
