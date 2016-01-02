@@ -21,5 +21,6 @@ update-gtk-icon-cache:
 	(cd data/icons; make update-gtk-icon-cache)
 
 ChangeLog:
+README:
 
-.PHONY: ChangeLog
+.PHONY: ChangeLog README
