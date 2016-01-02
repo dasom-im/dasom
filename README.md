@@ -14,7 +14,6 @@ Project Homepage: https://github.com/dasom-im/dasom
 
 
 ## INSTALL
--------
 
   * Compile
 ```bash
@@ -34,14 +33,12 @@ Project Homepage: https://github.com/dasom-im/dasom
 ```
 
 ## Troubleshoot
-------------
 
 * Failed to load shared library
   Check `/etc/ld.so.conf` and `/etc/ld.so.conf.d/` for `/usr/local/lib path`
 
 
 ## Architecture
-------------
 ```
 
     +- im modules (optional) -+  +---- each process -----+  +- a process --+
@@ -70,8 +67,8 @@ Project Homepage: https://github.com/dasom-im/dasom
                   +- dasom-jeongeum (optional)
 
 ```
-References
-----------
+## References
+
   http://www.x.org/releases/X11R7.6/doc/libX11/specs/XIM/xim.html
   http://www.w3.org/TR/ime-api/
   https://developer.chrome.com/extensions/input_ime
