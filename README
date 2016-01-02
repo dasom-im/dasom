@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/dasom-im/dasom.svg?branch=master)](https://travis-ci.org/dasom-im/dasom)
 Dasom is an input method framework, which provides
 
   * Input Method Server
