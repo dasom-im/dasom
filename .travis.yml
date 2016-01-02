@@ -1,0 +1,10 @@
+language: c
+dist: trusty
+before_install:
+  - sudo apt-get update
+install:
+  - sudo apt-get install -y build-essential devscripts equivs
+  - echo y | sudo mk-build-deps -i -t apt-get
+script:
+ - ./autogen.sh --prefix=/usr
+ - make
