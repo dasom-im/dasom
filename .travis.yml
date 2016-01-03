@@ -8,3 +8,10 @@ install:
 script:
  - ./autogen.sh --prefix=/usr
  - make
+notifications:
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/bc70d4c138c5e1b3f32b
+    on_success: always  # options: [always|never|change] default: always
+    on_failure: always  # options: [always|never|change] default: always
+    on_start: always     # options: [always|never|change] default: always
