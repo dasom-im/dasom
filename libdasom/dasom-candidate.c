@@ -216,6 +216,7 @@ void dasom_candidate_show_window (DasomCandidate  *candidate,
 
   gtk_window_move (GTK_WINDOW (candidate->window), x, y);
   gtk_widget_show_all (candidate->window);
+  gtk_widget_queue_draw (candidate->window);
 }
 
 void dasom_candidate_hide_window (DasomCandidate *candidate)
