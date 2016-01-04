@@ -1,3 +1,11 @@
+dasom (1.2.1) stable; urgency=medium
+
+  * Retry connection 5 times (closes #39)
+  * Redraw candidate window (closes #22, closes #48)
+  * Fixed candidate position
+
+ -- Hodong Kim <hodong@cogno.org>  Tue, 05 Jan 2016 00:54:00 +0900
+
 dasom (1.2) stable; urgency=medium
 
   * Modified icons
