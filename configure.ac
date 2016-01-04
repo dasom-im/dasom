@@ -83,4 +83,6 @@ AC_OUTPUT([
   libdasom/dasom.pc
   daemon/Makefile
   po/Makefile.in
+  docs/Makefile
+
 ])
