@@ -2,3 +2,4 @@
 agents/app-indicator/dasom-indicator.c
 agents/gnome-shell-extension/extension.js
 daemon/dasom-daemon.c
+libdasom/org.freedesktop.Dasom.gschema.xml
