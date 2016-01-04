@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/dasom-im/dasom.svg?branch=master)](https://travis-ci.org/dasom-im/dasom)
+
+# Dasom
 Dasom is an input method framework, which provides
 
   * Input Method Server
@@ -10,35 +13,33 @@ Dasom is an input method framework, which provides
 Project Homepage: https://github.com/dasom-im/dasom
 
 
-INSTALL
--------
+## INSTALL
 
   * Compile
-
+```bash
     ./autogen.sh
     make
     sudo make install
     sudo ldconfig
     sudo make update-gtk-icon-cache
-
+```
   * For gnome-shell, enable dasom-agent@gnome-shell-extensions.cogno.org
-
+```bash
     gnome-shell-extension-tool -e dasom-agent@gnome-shell-extensions.cogno.org
-
+```
   * Configure im-config
-
+```bash
     Run im-config, then select Dasom, logout and login.
+```
 
-
-Troubleshoot
-------------
+## Troubleshoot
 
 * Failed to load shared library
-  Check /etc/ld.so.conf and /etc/ld.so.conf.d/ for /usr/local/lib path
+  Check `/etc/ld.so.conf` and `/etc/ld.so.conf.d/` for `/usr/local/lib path`
 
 
-Architecture
-------------
+## Architecture
+```
 
     +- im modules (optional) -+  +---- each process -----+  +- a process --+
     |        dasom-gtk        |  | gnome-shell-extension |  |   X server   |
@@ -65,9 +66,9 @@ Architecture
                   +- dasom-english (embedded)   +- dasom-candidate (gtk3)
                   +- dasom-jeongeum (optional)
 
+```
+## References
 
-References
-----------
   http://www.x.org/releases/X11R7.6/doc/libX11/specs/XIM/xim.html
   http://www.w3.org/TR/ime-api/
   https://developer.chrome.com/extensions/input_ime

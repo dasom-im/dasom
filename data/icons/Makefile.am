@@ -5,7 +5,8 @@ status_scalable_icon_DATA = \
 	scalable/dasom-indicator.svg \
 	scalable/dasom-indicator-warning.svg \
 	scalable/dasom-indicator-en.svg \
-	scalable/dasom-indicator-ko.svg
+	scalable/dasom-indicator-ko.svg \
+	scalable/dasom-indicator-zh.svg
 
 # 22x22 icons
 
