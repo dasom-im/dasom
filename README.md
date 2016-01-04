@@ -23,7 +23,7 @@ Project Homepage: https://github.com/dasom-im/dasom
     sudo ldconfig
     sudo make update-gtk-icon-cache
 ```
-  * For gnome-shell, enable dasom-agent@gnome-shell-extensions.cogno.org
+  * For gnome-shell, enable `dasom-agent@gnome-shell-extensions.cogno.org`
 ```bash
     gnome-shell-extension-tool -e dasom-agent@gnome-shell-extensions.cogno.org
 ```
@@ -34,7 +34,7 @@ Project Homepage: https://github.com/dasom-im/dasom
 
 ## Troubleshoot
 
-* Failed to load shared library
+* Failed to load shared library  
   Check `/etc/ld.so.conf` and `/etc/ld.so.conf.d/` for `/usr/local/lib path`
 
 
@@ -69,14 +69,14 @@ Project Homepage: https://github.com/dasom-im/dasom
 ```
 ## References
 
-  http://www.x.org/releases/X11R7.6/doc/libX11/specs/XIM/xim.html
-  http://www.w3.org/TR/ime-api/
-  https://developer.chrome.com/extensions/input_ime
-  https://docs.enlightenment.org/stable/efl/group__Ecore__IMF__Lib__Group.html
-  http://doc.qt.io/qt-4.8/qinputcontext.html
-  http://doc.qt.io/qt-5/qinputmethod.html
-  https://git.gnome.org/browse/gtk+
+  http://www.x.org/releases/X11R7.6/doc/libX11/specs/XIM/xim.html  
+  http://www.w3.org/TR/ime-api/  
+  https://developer.chrome.com/extensions/input_ime  
+  https://docs.enlightenment.org/stable/efl/group__Ecore__IMF__Lib__Group.html  
+  http://doc.qt.io/qt-4.8/qinputcontext.html  
+  http://doc.qt.io/qt-5/qinputmethod.html  
+  https://git.gnome.org/browse/gtk+  
 
-  https://github.com/ibus/ibus
-  https://github.com/fcitx/fcitx
-  https://github.com/uim/uim
+  https://github.com/ibus/ibus  
+  https://github.com/fcitx/fcitx  
+  https://github.com/uim/uim  
