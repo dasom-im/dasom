@@ -1,7 +1,7 @@
 # Korean translation for dasom
-# Copyright (C) 2016 Hodong Kim <hodong@cogno.org>
+# Copyright (C) 2015-2016 Hodong Kim <hodong@cogno.org>
 # This file is distributed under the same license as the dasom project.
-# Hodong Kim <hodong@cogno.org>, 2015.
+# Hodong Kim <hodong@cogno.org>, 2015-2016.
 #
 #, fuzzy
 msgid ""

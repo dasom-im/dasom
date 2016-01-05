@@ -3,7 +3,7 @@
  * dasom-candidate.c
  * This file is part of Dasom.
  *
- * Copyright (C) 2015 Hodong Kim <hodong@cogno.org>
+ * Copyright (C) 2015-2016 Hodong Kim <hodong@cogno.org>
  *
  * Dasom is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
