@@ -99,12 +99,12 @@ dasom-marshalers.c: dasom-marshalers.list
 	$(AM_V_GEN) glib-genmarshal --prefix=dasom_cclosure_marshal \
 	                            --body dasom-marshalers.list > dasom-marshalers.c
 
-dasom-enum-types.h: dasom-message.h dasom-enum-types.h.template
+dasom-enum-types.h: dasom-message.h dasom-types.h dasom-enum-types.h.template
 	$(AM_V_GEN) glib-mkenums --identifier-prefix Dasom \
 	                         --template dasom-enum-types.h.template \
 	                           dasom-message.h dasom-key-syms.h dasom-types.h > dasom-enum-types.h
 
-dasom-enum-types.c: dasom-message.h dasom-enum-types.c.template
+dasom-enum-types.c: dasom-message.h dasom-types.h dasom-enum-types.c.template
 	$(AM_V_GEN) glib-mkenums --identifier-prefix Dasom \
 	                         --template dasom-enum-types.c.template \
 	                           dasom-message.h dasom-key-syms.h dasom-types.h > dasom-enum-types.c
