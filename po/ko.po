@@ -1,7 +1,7 @@
 # Korean translation for dasom
-# Copyright (C) 2015-2016 Hodong Kim <hodong@cogno.org>
+# Copyright (C) 2015,2016 Hodong Kim <cogniti@gmail.com>
 # This file is distributed under the same license as the dasom project.
-# Hodong Kim <hodong@cogno.org>, 2015-2016.
+# Hodong Kim <cogniti@gmail.com>, 2015,2016.
 #
 #, fuzzy
 msgid ""
@@ -9,49 +9,50 @@ msgstr ""
 "Project-Id-Version: dasom 1.2.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-05 05:01+0900\n"
-"PO-Revision-Date: 2016-01-05 01:03+0900\n"
-"Last-Translator: Hodong Kim <hodong@cogno.org>\n"
-"Language-Team: Hodong Kim <hodong@cogno.org>\n"
+"PO-Revision-Date: 2016-02-07 19:30+0900\n"
+"Last-Translator: Hodong Kim <cogniti@gmail.com>\n"
+"Language-Team: Hodong Kim <cogniti@gmail.com>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../agents/app-indicator/dasom-indicator.c:45
-#, c-format
+#: ../agents/app-indicator/dasom-indicator.c:46
 msgid ""
-"Dasom %s\n"
-"\n"
+"An indicator for Dasom\n"
 "Dasom was named by Suhyeok Gwon."
 msgstr ""
-"다솜 %s\n"
-"\n"
+"다솜을 위한 표시기\n"
 "권수혁 님이 다솜이란 이름을 붙여주셨습니다."
 
-#: ../agents/app-indicator/dasom-indicator.c:47
+#: ../agents/app-indicator/dasom-indicator.c:51
 #: ../agents/gnome-shell-extension/extension.js:31
 msgid "Dasom Indicator"
 msgstr "다솜 표시기"
 
-#: ../agents/app-indicator/dasom-indicator.c:97 ../daemon/dasom-daemon.c:47
+#: ../agents/app-indicator/dasom-indicator.c:55
+msgid "Website"
+msgstr "웹사이트"
+
+#: ../agents/app-indicator/dasom-indicator.c:104 ../daemon/dasom-daemon.c:47
 msgid "Do not daemonize"
 msgstr "데몬화하지 않습니다"
 
-#: ../agents/app-indicator/dasom-indicator.c:98 ../daemon/dasom-daemon.c:48
+#: ../agents/app-indicator/dasom-indicator.c:105 ../daemon/dasom-daemon.c:48
 msgid "Log debugging message"
 msgstr "디버깅 메시지를 기록합니다"
 
-#: ../agents/app-indicator/dasom-indicator.c:99 ../daemon/dasom-daemon.c:49
+#: ../agents/app-indicator/dasom-indicator.c:106 ../daemon/dasom-daemon.c:49
 msgid "Version"
 msgstr "버전"
 
-#: ../agents/app-indicator/dasom-indicator.c:152
+#: ../agents/app-indicator/dasom-indicator.c:159
 #: ../agents/gnome-shell-extension/extension.js:81
 msgid "About"
 msgstr "정보"
 
-#: ../agents/app-indicator/dasom-indicator.c:153
+#: ../agents/app-indicator/dasom-indicator.c:160
 msgid "Exit"
 msgstr "종료"
 
@@ -71,20 +72,16 @@ msgstr "권수혁 님이 다솜이란 이름을 붙여주셨습니다."
 
 #: ../libdasom/org.freedesktop.Dasom.gschema.xml.h:1
 msgid "default input method engine"
-msgstr ""
+msgstr "기본 입력 엔진"
 
 #: ../libdasom/org.freedesktop.Dasom.gschema.xml.h:2
-msgid "hotkey for switching input method"
-msgstr ""
+msgid "Hotkeys for switching input method engine"
+msgstr "입력 엔진을 교환하기 위한 핫키"
 
 #: ../libdasom/org.freedesktop.Dasom.gschema.xml.h:3
-msgid "Binding to change the input method"
-msgstr ""
+msgid "Enabled engines"
+msgstr "활성화된 엔진"
 
 #: ../libdasom/org.freedesktop.Dasom.gschema.xml.h:4
-msgid "Enabled engines"
-msgstr ""
-
-#: ../libdasom/org.freedesktop.Dasom.gschema.xml.h:5
 msgid "List of enabled engines."
-msgstr ""
+msgstr "활성화된 엔진 리스트"
