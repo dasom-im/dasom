@@ -8,8 +8,8 @@
     </key>
     <key type="as" name="hotkeys">
       <default>['']</default>
-      <summary>hotkey for switching input method</summary>
-      <description>Binding to change the input method</description>
+      <summary>Hotkeys for switching input method engine</summary>
+      <description>Hotkeys for switching input method engine</description>
     </key>
     <key name="enabled-engines" type="as">
       <default>['dasom-english']</default>
