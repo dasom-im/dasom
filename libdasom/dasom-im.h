@@ -3,7 +3,7 @@
  * dasom-im.h
  * This file is part of Dasom.
  *
- * Copyright (C) 2015 Hodong Kim <hodong@cogno.org>
+ * Copyright (C) 2015,2016 Hodong Kim <cogniti@gmail.com>
  *
  * Dasom is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -76,27 +76,26 @@ struct _DasomIMClass
 };
 
 GType     dasom_im_get_type            (void) G_GNUC_CONST;
-DasomIM  *dasom_im_new                 (void);
-void      dasom_im_focus_in            (DasomIM           *im);
-void      dasom_im_focus_out           (DasomIM           *im);
-void      dasom_im_reset               (DasomIM           *im);
-gboolean  dasom_im_filter_event        (DasomIM           *im,
-                                        DasomEvent        *event);
-void      dasom_im_get_preedit_string  (DasomIM           *im,
-                                        gchar            **str,
-                                        gint              *cursor_pos);
+DasomIM  *dasom_im_new                 (DasomConnectionType   type);
+void      dasom_im_focus_in            (DasomIM              *im);
+void      dasom_im_focus_out           (DasomIM              *im);
+void      dasom_im_reset               (DasomIM              *im);
+gboolean  dasom_im_filter_event        (DasomIM              *im,
+                                        DasomEvent           *event);
+void      dasom_im_get_preedit_string  (DasomIM              *im,
+                                        gchar               **str,
+                                        gint                 *cursor_pos);
 void      dasom_im_set_cursor_location (DasomIM              *im,
                                         const DasomRectangle *area);
-void      dasom_im_set_use_preedit     (DasomIM           *im,
-                                        gboolean           use_preedit);
-gboolean  dasom_im_get_surrounding     (DasomIM           *im,
-                                        gchar            **text,
-                                        gint              *cursor_index);
-void      dasom_im_set_surrounding     (DasomIM           *im,
-                                        const char        *text,
-                                        gint               len,
-                                        gint               cursor_index);
-
+void      dasom_im_set_use_preedit     (DasomIM              *im,
+                                        gboolean              use_preedit);
+gboolean  dasom_im_get_surrounding     (DasomIM              *im,
+                                        gchar               **text,
+                                        gint                 *cursor_index);
+void      dasom_im_set_surrounding     (DasomIM              *im,
+                                        const char           *text,
+                                        gint                  len,
+                                        gint                  cursor_index);
 G_END_DECLS
 
 #endif /* __DASOM_IM_H__ */

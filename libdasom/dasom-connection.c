@@ -3,7 +3,7 @@
  * dasom-connection.c
  * This file is part of Dasom.
  *
- * Copyright (C) 2015 Hodong Kim <hodong@cogno.org>
+ * Copyright (C) 2015,2016 Hodong Kim <cogniti@gmail.com>
  *
  * Dasom is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -301,6 +301,7 @@ dasom_connection_emit_preedit_start (DasomConnection *connection)
   switch (connection->type)
   {
     case DASOM_CONNECTION_DASOM_IM:
+    case DASOM_CONNECTION_DASOM_IM_QT5:
       if (G_UNLIKELY (connection->use_preedit == FALSE &&
                       connection->preedit_state == DASOM_PREEDIT_STATE_END))
         return;
@@ -344,6 +345,7 @@ dasom_connection_emit_preedit_changed (DasomConnection *connection,
   switch (connection->type)
   {
     case DASOM_CONNECTION_DASOM_IM:
+    case DASOM_CONNECTION_DASOM_IM_QT5:
       if (G_UNLIKELY (connection->use_preedit == FALSE &&
                       connection->preedit_state == DASOM_PREEDIT_STATE_END))
         return;
@@ -434,6 +436,7 @@ dasom_connection_emit_preedit_end (DasomConnection *connection)
   switch (connection->type)
   {
     case DASOM_CONNECTION_DASOM_IM:
+    case DASOM_CONNECTION_DASOM_IM_QT5:
       if (G_UNLIKELY (connection->use_preedit == FALSE &&
                       connection->preedit_state == DASOM_PREEDIT_STATE_END))
         return;
@@ -475,6 +478,7 @@ dasom_connection_emit_commit (DasomConnection *connection,
   switch (connection->type)
   {
     case DASOM_CONNECTION_DASOM_IM:
+    case DASOM_CONNECTION_DASOM_IM_QT5:
       dasom_send_message (connection->socket, DASOM_MESSAGE_COMMIT,
                           (gchar *) text, strlen (text) + 1, NULL);
       dasom_result_iteration_until (connection->result,

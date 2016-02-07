@@ -3,7 +3,7 @@
  * dasom-types.h
  * This file is part of Dasom.
  *
- * Copyright (C) 2015 Hodong Kim <hodong@cogno.org>
+ * Copyright (C) 2015,2016 Hodong Kim <cogniti@gmail.com>
  *
  * Dasom is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -40,8 +40,12 @@ typedef enum
 
 typedef enum
 {
+  /* IM */
   DASOM_CONNECTION_DASOM_IM,
+  DASOM_CONNECTION_DASOM_IM_QT5,
+  /* AGENT */
   DASOM_CONNECTION_DASOM_AGENT,
+  /* XIM */
   DASOM_CONNECTION_XIM
 } DasomConnectionType;
 

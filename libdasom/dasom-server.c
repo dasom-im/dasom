@@ -3,7 +3,7 @@
  * dasom-server.c
  * This file is part of Dasom.
  *
- * Copyright (C) 2015 Hodong Kim <hodong@cogno.org>
+ * Copyright (C) 2015,2016 Hodong Kim <cogniti@gmail.com>
  *
  * Dasom is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -64,7 +64,8 @@ on_incoming_message_dasom (GSocket         *socket,
     return G_SOURCE_REMOVE;
   }
 
-  if (connection->type == DASOM_CONNECTION_DASOM_IM)
+  if (connection->type == DASOM_CONNECTION_DASOM_IM ||
+      connection->type == DASOM_CONNECTION_DASOM_IM_QT5)
     dasom_engine_set_english_mode (connection->engine,
                                    connection->is_english_mode);
 
@@ -161,7 +162,8 @@ on_incoming_message_dasom (GSocket         *socket,
       break;
   }
 
-  if (connection->type == DASOM_CONNECTION_DASOM_IM)
+  if (connection->type == DASOM_CONNECTION_DASOM_IM ||
+      connection->type == DASOM_CONNECTION_DASOM_IM_QT5)
     connection->is_english_mode =
       dasom_engine_get_english_mode (connection->engine);
 
