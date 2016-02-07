@@ -64,7 +64,8 @@ on_incoming_message_dasom (GSocket         *socket,
     return G_SOURCE_REMOVE;
   }
 
-  if (connection->type == DASOM_CONNECTION_DASOM_IM ||
+  if (connection->type == DASOM_CONNECTION_DASOM_IM     ||
+      connection->type == DASOM_CONNECTION_DASOM_IM_QT4 ||
       connection->type == DASOM_CONNECTION_DASOM_IM_QT5)
     dasom_engine_set_english_mode (connection->engine,
                                    connection->is_english_mode);
@@ -162,7 +163,8 @@ on_incoming_message_dasom (GSocket         *socket,
       break;
   }
 
-  if (connection->type == DASOM_CONNECTION_DASOM_IM ||
+  if (connection->type == DASOM_CONNECTION_DASOM_IM     ||
+      connection->type == DASOM_CONNECTION_DASOM_IM_QT4 ||
       connection->type == DASOM_CONNECTION_DASOM_IM_QT5)
     connection->is_english_mode =
       dasom_engine_get_english_mode (connection->engine);

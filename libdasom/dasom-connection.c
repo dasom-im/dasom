@@ -301,6 +301,7 @@ dasom_connection_emit_preedit_start (DasomConnection *connection)
   switch (connection->type)
   {
     case DASOM_CONNECTION_DASOM_IM:
+    case DASOM_CONNECTION_DASOM_IM_QT4:
     case DASOM_CONNECTION_DASOM_IM_QT5:
       if (G_UNLIKELY (connection->use_preedit == FALSE &&
                       connection->preedit_state == DASOM_PREEDIT_STATE_END))
@@ -345,6 +346,7 @@ dasom_connection_emit_preedit_changed (DasomConnection *connection,
   switch (connection->type)
   {
     case DASOM_CONNECTION_DASOM_IM:
+    case DASOM_CONNECTION_DASOM_IM_QT4:
     case DASOM_CONNECTION_DASOM_IM_QT5:
       if (G_UNLIKELY (connection->use_preedit == FALSE &&
                       connection->preedit_state == DASOM_PREEDIT_STATE_END))
@@ -436,6 +438,7 @@ dasom_connection_emit_preedit_end (DasomConnection *connection)
   switch (connection->type)
   {
     case DASOM_CONNECTION_DASOM_IM:
+    case DASOM_CONNECTION_DASOM_IM_QT4:
     case DASOM_CONNECTION_DASOM_IM_QT5:
       if (G_UNLIKELY (connection->use_preedit == FALSE &&
                       connection->preedit_state == DASOM_PREEDIT_STATE_END))
@@ -478,6 +481,7 @@ dasom_connection_emit_commit (DasomConnection *connection,
   switch (connection->type)
   {
     case DASOM_CONNECTION_DASOM_IM:
+    case DASOM_CONNECTION_DASOM_IM_QT4:
     case DASOM_CONNECTION_DASOM_IM_QT5:
       dasom_send_message (connection->socket, DASOM_MESSAGE_COMMIT,
                           (gchar *) text, strlen (text) + 1, NULL);
