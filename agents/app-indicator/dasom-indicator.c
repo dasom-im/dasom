@@ -3,7 +3,7 @@
  * dasom-indicator.c
  * This file is part of Dasom.
  *
- * Copyright (C) 2015 Hodong Kim <hodong@cogno.org>
+ * Copyright (C) 2015,2016 Hodong Kim <cogniti@gmail.com>
  *
  * Dasom is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -36,17 +36,24 @@ static void on_about_menu (GtkWidget *widget,
 {
   g_debug (G_STRLOC ": %s", G_STRFUNC);
 
-  GtkWidget *dialog;
+  gchar *artists[]     = {"Hodong Kim <cogniti@gmail.com>", NULL};
+  gchar *authors[]     = {"Hodong Kim <cogniti@gmail.com>", NULL};
+  gchar *documenters[] = {"Hodong Kim <cogniti@gmail.com>", NULL};
 
-  dialog = gtk_message_dialog_new (NULL,
-                                   GTK_DIALOG_DESTROY_WITH_PARENT,
-                                   GTK_MESSAGE_INFO,
-                                   GTK_BUTTONS_CLOSE,
-                                   _("Dasom %s\n\nDasom was named by Suhyeok Gwon."), VERSION);
-
-  gtk_window_set_title (GTK_WINDOW (dialog), _("Dasom Indicator"));
-  gtk_dialog_run (GTK_DIALOG (dialog));
-  gtk_widget_destroy (dialog);
+  gtk_show_about_dialog (NULL,
+    "artists",            artists,
+    "authors",            authors,
+    "comments",           _("An indicator for Dasom\nDasom was named by Suhyeok Gwon."),
+    "copyright",          "Copyright (c) 2015,2016 Hodong Kim",
+    "documenters",        documenters,
+    "license-type",       GTK_LICENSE_LGPL_3_0,
+    "logo-icon-name",     "dasom-indicator",
+    "program-name",       _("Dasom Indicator"),
+    "translator-credits", "Hodong Kim <cogniti@gmail.com>",
+    "version",            VERSION,
+    "website",            "https://dasom-im.github.io",
+    "website-label",      _("Website"),
+    NULL);
 }
 
 static void on_exit_menu (GtkWidget *widget,
