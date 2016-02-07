@@ -3,7 +3,7 @@
  * dasom-im.c
  * This file is part of Dasom.
  *
- * Copyright (C) 2015-2016 Hodong Kim <hodong@cogno.org>
+ * Copyright (C) 2015,2016 Hodong Kim <cogniti@gmail.com>
  *
  * Dasom is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -22,6 +22,7 @@
 #include "dasom-im.h"
 #include "dasom-events.h"
 #include "dasom-types.h"
+#include "dasom-enum-types.h"
 #include "dasom-module-manager.h"
 #include "dasom-key-syms.h"
 #include "dasom-marshalers.h"
@@ -450,17 +451,11 @@ gboolean dasom_im_filter_event (DasomIM *im, DasomEvent *event)
 }
 
 DasomIM *
-dasom_im_new (void)
+dasom_im_new (DasomConnectionType type)
 {
   g_debug (G_STRLOC ": %s", G_STRFUNC);
 
-  return g_object_new (DASOM_TYPE_IM, NULL);
-}
-
-static void
-dasom_im_init (DasomIM *im)
-{
-  g_debug (G_STRLOC ": %s", G_STRFUNC);
+  DasomIM *im = g_object_new (DASOM_TYPE_IM, NULL);
 
   GSocketClient  *client;
   GSocketAddress *address;
@@ -468,8 +463,6 @@ dasom_im_init (DasomIM *im)
   GError         *error = NULL;
   gint            retry_limit = 5;
   gint            retry_count = 0;
-
-  im->preedit_string = g_strdup ("");
 
   address = g_unix_socket_address_new_with_type (DASOM_ADDRESS, -1,
                                                  G_UNIX_SOCKET_ADDRESS_ABSTRACT);
@@ -494,7 +487,7 @@ dasom_im_init (DasomIM *im)
   {
     g_critical (G_STRLOC ": %s: %s", G_STRFUNC, error->message);
     g_clear_error (&error);
-    return;
+    return im;
   }
 
   socket = g_socket_connection_get_socket (im->connection);
@@ -502,14 +495,13 @@ dasom_im_init (DasomIM *im)
   if (!socket)
   {
     g_critical (G_STRLOC ": %s: %s", G_STRFUNC, "Can't get socket");
-    return;
+    return im;
   }
 
   DasomMessage *message;
 
-  DasomConnectionType type = DASOM_CONNECTION_DASOM_IM;
-
-  dasom_send_message (socket, DASOM_MESSAGE_CONNECT, &type, sizeof (DasomConnectionType), NULL);
+  dasom_send_message (socket, DASOM_MESSAGE_CONNECT, &type,
+                      sizeof (DasomConnectionType), NULL);
   g_socket_condition_wait (socket, G_IO_IN, NULL, NULL);
   message = dasom_recv_message (socket);
 
@@ -521,8 +513,6 @@ dasom_im_init (DasomIM *im)
   }
 
   dasom_message_unref (message);
-
-  im->result = g_slice_new0 (DasomResult);
 
   GMutex mutex;
 
@@ -547,14 +537,24 @@ dasom_im_init (DasomIM *im)
   g_source_set_can_recurse (im->sockets_context_source, TRUE);
   g_source_attach (im->sockets_context_source, dasom_im_sockets_context);
   g_source_set_callback (im->sockets_context_source,
-                         (GSourceFunc) on_incoming_message,
-                         im, NULL);
+                         (GSourceFunc) on_incoming_message, im, NULL);
 
   im->default_context_source = g_socket_create_source (socket, G_IO_IN, NULL);
   g_source_set_can_recurse (im->default_context_source, TRUE);
   g_source_set_callback (im->default_context_source,
                          (GSourceFunc) on_incoming_message, im, NULL);
   g_source_attach (im->default_context_source, NULL);
+
+  return im;
+}
+
+static void
+dasom_im_init (DasomIM *im)
+{
+  g_debug (G_STRLOC ": %s", G_STRFUNC);
+
+  im->preedit_string = g_strdup ("");
+  im->result = g_slice_new0 (DasomResult);
 }
 
 static void
