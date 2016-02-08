@@ -1,3 +1,13 @@
+dasom (1.2.2) stable; urgency=medium
+
+  * Update translation
+  * Use gtk_show_about_dialog()
+  * Add DASOM_CONNECTION_DASOM_IM_QT4, DASOM_CONNECTION_DASOM_IM_QT5
+  * Add dependency on dasom-types.h
+  * Modified default value of the "hotkeys"
+
+ -- Hodong Kim <cogniti@gmail.com>  Sun, 07 Feb 2016 20:48:44 +0900
+
 dasom (1.2.1) stable; urgency=medium
 
   * Retry connection 5 times (closes #39)
