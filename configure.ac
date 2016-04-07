@@ -77,6 +77,7 @@ AC_OUTPUT([
   agents/gnome-shell-extension/metadata.json
   agents/app-indicator/Makefile
   data/Makefile
+  data/apparmor-abstractions/Makefile
   data/im-config/Makefile
   data/icons/Makefile
   libdasom/Makefile

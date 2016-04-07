@@ -6,3 +6,4 @@ usr/share/gnome-shell/
 usr/share/icons/
 usr/share/im-config/
 usr/share/locale/
+etc/apparmor.d/
