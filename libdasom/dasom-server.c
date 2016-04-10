@@ -27,6 +27,8 @@
 #include "dasom-module.h"
 #include "IMdkit/Xi18n.h"
 #include "dasom-english.h"
+#include "dasom-key-syms.h"
+#include <X11/XKBlib.h>
 
 enum
 {
@@ -761,21 +763,34 @@ int dasom_server_xim_forward_event (DasomServer          *server,
 {
   g_debug (G_STRLOC ": %s", G_STRFUNC);
 
-  XKeyEvent      *xevent;
-  DasomEvent     *event;
-  DasomEventType  type;
-  gboolean        retval;
+  XKeyEvent        *xevent;
+  DasomEvent       *event;
+  gboolean          retval;
+  KeySym            keysym;
+  unsigned int      consumed;
+  DasomModifierType state;
 
   xevent = (XKeyEvent*) &(data->event);
 
-  type = (xevent->type == KeyPress) ? DASOM_EVENT_KEY_PRESS : DASOM_EVENT_KEY_RELEASE;
+  event = dasom_event_new (DASOM_EVENT_NOTHING);
 
-  event = dasom_event_new (type);
+  if (xevent->type == KeyPress)
+    event->key.type = DASOM_EVENT_KEY_PRESS;
+  else
+    event->key.type = DASOM_EVENT_KEY_RELEASE;
+
   event->key.state = (DasomModifierType) xevent->state;
-  event->key.keyval = XLookupKeysym (xevent,
-                                     (!(xevent->state & ShiftMask) !=
-                                      !(xevent->state & LockMask)) ? 1 : 0);
+  event->key.keyval = DASOM_KEY_VoidSymbol;
   event->key.hardware_keycode = xevent->keycode;
+
+  XkbLookupKeySym (xims->core.display,
+                   event->key.hardware_keycode,
+                   event->key.state,
+                   &consumed, &keysym);
+  event->key.keyval = (guint) keysym;
+
+  state = event->key.state & ~consumed;
+  event->key.state |= (DasomModifierType) state;
 
   DasomConnection *connection;
   connection = g_hash_table_lookup (server->connections,
