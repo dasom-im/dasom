@@ -1,3 +1,10 @@
+dasom (1.2.3) stable; urgency=medium
+
+ * Add apparmor-abstractions
+ * Fixed wrong translation of key
+
+ -- Youngbin Han <sukso96100@gmail.com>  Tue, 07 Apr 2016 23:17:44 +0900
+
 dasom (1.2.2) stable; urgency=medium
 
   * Update translation
