@@ -509,7 +509,10 @@ dasom_im_new (DasomConnectionType type)
                   message->header->type != DASOM_MESSAGE_CONNECT_REPLY))
   {
     dasom_message_unref (message);
-    g_error ("Couldn't connect to dasom daemon");
+    g_critical ("Couldn't connect to dasom-daemon");
+
+    if (message)
+      dasom_message_unref (message);
   }
 
   dasom_message_unref (message);
