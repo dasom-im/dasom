@@ -3,7 +3,7 @@
  * dasom-events.c
  * This file is part of Dasom.
  *
- * Copyright (C) 2015 Hodong Kim <hodong@cogno.org>
+ * Copyright (C) 2015-2016 Hodong Kim <cogniti@gmail.com>
  *
  * Dasom is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,33 +23,6 @@
 #include "dasom-types.h"
 #include "dasom-key-syms.h"
 #include <string.h>
-
-typedef struct _dasom_mod_info DasomModifierInfo;
-
-struct _dasom_mod_info {
-  gchar *name;
-  DasomModifierType mod;
-};
-
-static const DasomModifierInfo mod_info_list[] = {
-  {"Shift",    DASOM_SHIFT_MASK},
-  {"Lock",     DASOM_LOCK_MASK},
-  {"Control",  DASOM_CONTROL_MASK},
-  {"Mod1",     DASOM_MOD1_MASK},
-  {"Mod2",     DASOM_MOD2_MASK}, /* Num Lock */
-  {"Mod3",     DASOM_MOD3_MASK},
-  {"Mod4",     DASOM_MOD4_MASK},
-  {"Mod5",     DASOM_MOD5_MASK},
-  {"Button1",  DASOM_BUTTON1_MASK},
-  {"Button2",  DASOM_BUTTON2_MASK},
-  {"Button3",  DASOM_BUTTON3_MASK},
-  {"Button4",  DASOM_BUTTON4_MASK},
-  {"Button5",  DASOM_BUTTON5_MASK},
-  {"Super",    DASOM_SUPER_MASK},
-  {"Hyper",    DASOM_HYPER_MASK},
-  {"Meta",     DASOM_META_MASK},
-  {"Release",  DASOM_RELEASE_MASK}
-};
 
 gboolean
 dasom_event_matches (DasomEvent *event, const DasomKey **keys)
